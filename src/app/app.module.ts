@@ -6,6 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { DatabaseProvider } from '../providers/database/database';
+
+import { IonicStorageModule } from "@ionic/storage"; //ekle
+import { HttpModule } from "@angular/http"; //ekle
+
+import { SQLitePorter } from "@ionic-native/sqlite-porter"; //ekle
+import { SQLite} from "@ionic-native/sqlite"; //ekle
 
 @NgModule({
   declarations: [
@@ -14,6 +21,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpModule, //ekle
+    IonicStorageModule.forRoot(), //ekle
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -24,7 +33,10 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseProvider,
+    SQLitePorter, //ekle
+    SQLite, //ekle
   ]
 })
 export class AppModule {}

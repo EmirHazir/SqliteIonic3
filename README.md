@@ -1,26 +1,32 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is a  [Ionic](http://ionicframework.com/docs/) project about how to use Sqlite queries & pre-populated database by Emir Hazir.
 
 ## How to use this template
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+Create a DumyData in assest check the project
+than create a provider named database
+and install plugins 
+1- ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteport
+er
+2- ionic cordova plugin add cordova-sqlite-storage
+3- npm install --save @ionic-native/sqlite-porter
+4- npm install --save @ionic-native/sqlite
+5- npm install --save @ionic/storage
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+you need some configurate app.module.ts 
+import { IonicStorageModule } from "@ionic/storage"; 
+import { HttpModule } from "@angular/http"; 
 
-### With the Ionic CLI:
+import { SQLitePorter } from "@ionic-native/sqlite-porter"; 
+import { SQLite} from "@ionic-native/sqlite"; 
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+imports array => HttpModule, 
+    IonicStorageModule.forRoot(), 
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+providers array => SQLitePorter, 
+    SQLite,  
 
-Then, to run it, cd into `myBlank` and run:
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+ionic serve 
 
-Substitute ios for android if not on a Mac.
+
 
